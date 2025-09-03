@@ -1,0 +1,27 @@
+# Node
+node_modules/
+package-lock.json
+npm-debug.log*
+.yarn-integrity
+.pnpm-debug.log
+
+# web-ext artifacts
+web-ext-artifacts/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.log
+
+# Ignore built extension packages
+*.xpi
+
+# Editor swap files
+*~
+*.swp
+*.swo

@@ -1,0 +1,22 @@
+{
+  "name": "datffthing",
+  "version": "1.0.0",
+  "description": "A Firefox extension with helper tools to make (my) life easier",
+  "main": "background.js",
+  "scripts": {
+    "start": "web-ext run --source-dir .",
+    "build": "web-ext build --source-dir . --overwrite-dest",
+    "lint": "web-ext lint --source-dir .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "firefox",
+    "extension",
+    "webextension"
+  ],
+  "author": "Darko Kuzmanovic",
+  "license": "MIT",
+  "devDependencies": {
+    "web-ext": "^7.12.0"
+  }
+}
