@@ -8,11 +8,16 @@ browser.contextMenus.create({
 // Handle menu item click
 browser.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "copy-link-text") {
-    // Copy link text to clipboard
-    navigator.clipboard.writeText(info.linkText).then(() => {
-      console.log("Link text copied to clipboard: " + info.linkText);
-    }).catch(err => {
-      console.error("Failed to copy link text: ", err);
+    // Copy link text to clipboard using executeScript
+    browser.tabs.executeScript({
+      code: `
+        const text = "${info.linkText}";
+        navigator.clipboard.writeText(text).then(() => {
+          console.log("Link text copied to clipboard: " + text);
+        }).catch(err => {
+          console.error("Failed to copy link text: ", err);
+        });
+      `
     });
   }
 });

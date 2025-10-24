@@ -1,0 +1,12 @@
+# Exclude development and documentation files
+.git/
+.gitignore
+node_modules/
+package.json
+package-lock.json
+README.md
+CLAUDE.md
+test.html
+QWEN.md
+web-ext-artifacts/
+.claude/
