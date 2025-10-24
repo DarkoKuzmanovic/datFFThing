@@ -11,12 +11,16 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
     // Copy link text to clipboard using executeScript
     browser.tabs.executeScript({
       code: `
-        const text = "${info.linkText}";
-        navigator.clipboard.writeText(text).then(() => {
+        (function() {
+          const text = "${info.linkText.replace(/"/g, '\\"').replace(/'/g, "\\'").replace(/\n/g, "\\n")}";
+          const textArea = document.createElement("textarea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
           console.log("Link text copied to clipboard: " + text);
-        }).catch(err => {
-          console.error("Failed to copy link text: ", err);
-        });
+        })();
       `
     });
   }
